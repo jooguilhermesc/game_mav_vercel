@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://fonts/PressStart2P-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/splash screen.png" type="Texture" id=2]
+[ext_resource path="res://scripts/Splash.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 18
+outline_color = Color( 0.227451, 0.690196, 0.866667, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+centered = false
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_left = 0.191
+anchor_top = 0.717
+anchor_right = 0.792
+anchor_bottom = 0.749
+margin_left = -0.164009
+margin_top = -0.23999
+margin_right = 0.0319824
+margin_bottom = 41.72
+color = Color( 0.0117647, 0.14902, 0.258824, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 17.0
+margin_bottom = -21.0
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "Teste"
+text = "Teste"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+scale = Vector2( 20, 36 )
+shape = SubResource( 2 )
+[connection signal="pressed" from="TouchScreenButton" to="." method="_on_TouchScreenButton_pressed"]
